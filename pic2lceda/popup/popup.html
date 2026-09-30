@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h3>LCEDA图片转换器</h3>
+
+    <div class="row">
+      <label>图片路径</label>
+      <input type="text" id="sourcefullpath" value="./img/ico.png" readonly>
+      <input type="file" id="fileInput" accept="image/*" hidden>
+      <button id="btn_getfile">选取文件</button>
+    </div>
+
+    <div class="row">
+      <label>X最大尺寸/mm</label>
+      <input type="number" id="x_size" value="50" min="1" max="999.99" step="0.01">
+    </div>
+
+    <div class="row">
+      <label>Y最大尺寸/mm</label>
+      <input type="number" id="y_size" value="50" min="1" max="999.99" step="0.01">
+    </div>
+
+    <div class="row">
+      <label>线宽/mil</label>
+      <input type="number" id="width" value="5" min="1" step="1">
+    </div>
+
+    <div class="row">
+      <label>层级</label>
+      <select id="layer">
+        <option value="0">顶层</option>
+        <option value="1">底层</option>
+        <option value="2">顶层丝印层</option>
+        <option value="3">底层丝印层</option>
+        <option value="4">顶层焊盘层</option>
+        <option value="5">底层焊盘层</option>
+        <option value="6" selected>顶层阻焊层</option>
+        <option value="7">底层阻焊层</option>
+        <option value="8">边框层</option>
+        <option value="9">文档层</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label>图像阈值</label>
+      <input type="range" id="thresholdSlider" min="0" max="255" value="127">
+      <span id="threshold_label">127</span>
+    </div>
+
+    <div class="row checkboxes">
+      <label><input type="checkbox" id="color_invert_f"> 图像反相</label>
+      <label><input type="checkbox" id="x_invert_f"> 水平翻转</label>
+      <label><input type="checkbox" id="y_invert_f"> 垂直翻转</label>
+      <label><input type="checkbox" id="copper_f"> 创建铜皮</label>
+    </div>
+
+    <canvas id="preview" style="display:none"></canvas>
+
+    <button id="btn_convert" class="primary">生成文件</button>
+    <div id="status"></div>
+  </div>
+  <script src="../lib/imageProcessor.js"></script>
+  <script src="../lib/lcedaGenerator.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

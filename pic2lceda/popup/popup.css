@@ -1,0 +1,33 @@
+body {
+  width: 430px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  margin: 0;
+  padding: 10px;
+}
+.container { display: flex; flex-direction: column; gap: 8px; }
+h3 { margin: 0 0 8px; text-align: center; }
+.row { display: flex; align-items: center; gap: 8px; }
+.row label { flex: 0 0 110px; }
+.row input[type="text"],
+.row input[type="number"],
+.row select { flex: 1; padding: 4px; }
+.checkboxes { flex-wrap: wrap; }
+.checkboxes label { flex: 0 0 48%; display: flex; align-items: center; gap: 4px; }
+button {
+  padding: 6px 12px;
+  cursor: pointer;
+  border: 1px solid #888;
+  background: #f0f0f0;
+  border-radius: 3px;
+}
+button.primary {
+  width: 100%;
+  background: #2d7ff9;
+  color: white;
+  border: none;
+  padding: 8px;
+  font-weight: bold;
+}
+#status { min-height: 18px; font-size: 12px; color: #2d7ff9; text-align: center; }
+#threshold_label { min-width: 30px; text-align: right; }

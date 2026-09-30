@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "LCEDA图片转换器",
+  "version": "1.0.0",
+  "description": "将图片转换为立创EDA的PCB库文件",
+  "permissions": ["downloads", "storage"],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": { "128": "icons/icon128.png" }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.lceda.cn/*", "*://*.easyeda.com/*"],
+      "js": ["content/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": { "128": "icons/icon128.png" }
+}
